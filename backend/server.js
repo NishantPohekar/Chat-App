@@ -27,11 +27,11 @@ import userRoutes from "./routes/user.routes.js"
 
 console.log("Loaded MONGO_URL:", process.env.MONGO_URL);
 
-import connectToMongoDb from "./db/connecttoMongoDb.js"
+
 
 const PORT = process.env.PORT || 5001
 
-
+import connectToMongoDb from "./db/connectToMongoDB.js"
 
 app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
