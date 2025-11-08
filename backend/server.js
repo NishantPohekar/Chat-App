@@ -9,10 +9,15 @@ import cors from "cors"
 import { app, server } from "./socket/socket.js"
 
 
+const allowedOrigins = [
+  "http://localhost:3000",               // for local dev
+  "https://chat-app-wk5z.onrender.com"   // your deployed frontend
+];
+
 app.use(cors({
-  origin: "http://localhost:3000", // your frontend URL
-  credentials: true,               // allow cookies
-}))
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json())
 app.use(cookieParser())
 

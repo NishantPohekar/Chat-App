@@ -4,15 +4,20 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:3000",               // for local dev
+  "https://chat-app-wk5z.onrender.com"   // your deployed frontend
+];
+
 app.use(cors({
-  origin: ["http://localhost:3000"], // allow frontend
-  credentials: true
+  origin: allowedOrigins,
+  credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: ["http://localhost:3000"],
+		origin: ["http://localhost:3000", "https://chat-app-wk5z.onrender.com"],
 		methods: ["GET", "POST"],
       credentials: true
 	},
