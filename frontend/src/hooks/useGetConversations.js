@@ -9,7 +9,7 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("http://localhost:5001/api/users", {
+				const res = await fetch("https://chat-app-wk5z.onrender.com/api/users", {
   method: "GET",
   credentials: "include", // 🔥 required to send cookies
 });

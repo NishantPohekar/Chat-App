@@ -13,12 +13,13 @@ const {setAuthUser} = useAuthContext()
 
     setLoading(true)
     try {
-        const res = await fetch("http://localhost:5001/api/auth/signup",{
+        const res = await fetch("https://chat-app-wk5z.onrender.com/api/auth/signup",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
             },
-            body:JSON.stringify({fullName, username, password, confirmPassword, gender})
+            body:JSON.stringify({fullName, username, password, confirmPassword, gender}),
+            credentials: "include"
         })
 
         const data = await res.json()

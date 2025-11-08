@@ -10,7 +10,7 @@ const useSendMessage = () => {
     const sendMessage = async (message)=>{
         setLoading(true);
             try {
-                const res = await fetch(`http://localhost:5001/api/messages/send/${selectedConversation._id}`,{
+                const res = await fetch(`https://chat-app-wk5z.onrender.com/api/messages/send/${selectedConversation._id}`,{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json"
