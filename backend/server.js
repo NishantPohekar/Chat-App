@@ -3,9 +3,19 @@ import dotenv from "dotenv"
 dotenv.config()
 import express from "express"
 import cookieParser from "cookie-parser"
-const app = express()
+import cors from "cors"
+
+import { app, server } from "./socket/socket.js"
+
+
+app.use(cors({
+  origin: "http://localhost:3000", // your frontend URL
+  credentials: true,               // allow cookies
+}))
 app.use(express.json())
 app.use(cookieParser())
+
+
 
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js"
@@ -28,7 +38,7 @@ app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
 app.use("/api/users",userRoutes)
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     connectToMongoDb();
     console.log(`Server running on PORT ${PORT}`);
 })

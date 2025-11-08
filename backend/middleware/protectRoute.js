@@ -17,6 +17,8 @@ const protectRoute = async (req,res,next)=>{
             return res.status(401).json({error:"Unauthorized - User Not Found"})
         }
         req.user = user
+        console.log("Cookies:", req.cookies);
+
         next()
     } catch (error) {
         console.log("Error in protectRoute middleware", error.message);
